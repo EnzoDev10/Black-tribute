@@ -1,0 +1,74 @@
+.btn-container {
+	align-items: center;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	margin-top: 20px;
+}
+
+button {
+	align-items: center;
+	border: none;
+	background-color: transparent;
+	color: rgba(255, 255, 255, 0.7);
+
+	display: flex;
+	font-size: 1.2rem;
+	gap: 10px;
+	min-width: 250px;
+	padding: 10px;
+	position: relative;
+}
+
+button:focus,
+button:hover {
+	animation: flicker 400ms forwards;
+	background-color: black;
+	border-right: solid white;
+	border-left: solid white;
+	border-width: 3px;
+	font-size: 1.4rem;
+	outline: none;
+	opacity: 1;
+}
+
+button:before {
+	background-color: white;
+	content: '';
+	opacity: 0;
+	height: 3px;
+	position: absolute;
+	top: 50%;
+	left: -40px;
+	width: 40px;
+}
+
+button:hover:before,
+button:focus:before {
+	opacity: 1;
+}
+
+button,
+button:before,
+.btn-line {
+	transition: all 300ms;
+	/* Added to stop the borders of the button from growing later than everything else */
+	transition: border 1ms;
+}
+
+.btn-container:has(button:hover) .btn-line,
+.btn-container:has(button:focus) .btn-line {
+	height: 3px;
+	background-color: white;
+}
+
+@keyframes flicker {
+	F 25% {
+		background-color: black;
+	}
+	50% {
+		background-color: #ddd;
+	}
+	100% {
+		background-color: black;
+	}
+}
