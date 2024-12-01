@@ -20,7 +20,7 @@ function App() {
 			<main className="overlay">
 				<img src={logo} className="logo" alt="Black Logo" />
 
-				<div className="btns-container">
+				<div className="actions-container">
 					<Button
 						label="EASY"
 						parentMethod={() => {
