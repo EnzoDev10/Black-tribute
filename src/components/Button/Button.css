@@ -9,6 +9,10 @@
 		height: 3px;
 		background-color: var(--light-color);
 	}
+
+	.left-line {
+		display: none;
+	}
 }
 
 button {
@@ -44,8 +48,8 @@ button {
 		height: 3px;
 		position: absolute;
 		top: 50%;
-		left: -40px;
-		width: 40px;
+		left: -60px;
+		width: 60px;
 	}
 
 	&:hover:before,
@@ -63,5 +67,18 @@ button {
 	}
 	100% {
 		background-color: var(--dark-color);
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.btn-container {
+		grid-template-columns: repeat(3, 1fr);
+
+		.left-line {
+			display: initial;
+		}
+	}
+	button {
+		justify-content: center;
 	}
 }

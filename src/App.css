@@ -57,26 +57,26 @@ video {
 	.line {
 		animation: LinesMovement 25s linear infinite;
 		background-color: var(--overlay-color);
-		background-image: url('./assets/images/line.svg');
+		background-image: url('./assets/images/right-line.png');
 		background-repeat: repeat-y;
 		background-position: center;
-		background-size: cover;
+		background-size: contain;
 		height: 100vh;
 		position: absolute;
 		right: 0;
 		top: 0;
-		width: 40px;
+		width: 50px;
 	}
 
 	.line.reverse {
 		left: 0;
-		transform: rotate(-180deg);
+		background-image: url('./assets/images/left-line.png');
 	}
 }
 
 main {
 	flex-grow: 3;
-	padding-left: 50px;
+	padding-left: 10px;
 }
 
 .actions-container {
@@ -84,7 +84,7 @@ main {
 	flex-direction: column;
 	margin-top: 15px;
 	padding: 20px;
-	padding-right: 0;
+	padding-left: 40px;
 	position: relative;
 
 	&::before,
@@ -110,14 +110,14 @@ main {
 	}
 }
 
-@keyframes LinesMovement {
+/* @keyframes LinesMovement {
 	from {
 		background-position: center 0;
 	}
 	to {
 		background-position: center calc(100% - 100vh);
 	}
-}
+} */
 
 @keyframes toBottomAndRight {
 	0% {
@@ -138,7 +138,6 @@ main {
 	0% {
 		left: 0;
 	}
-
 	/* With calc both bars always have the same appearance at the final position despite viewport size  */
 	50% {
 		left: calc(50% - 18px);
@@ -148,5 +147,33 @@ main {
 	100% {
 		left: calc(50% - 18px);
 		top: 107%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.lines-container {
+		display: none;
+	}
+
+	.left-side {
+		display: none;
+	}
+
+	main {
+		padding: 0;
+		text-align: center;
+	}
+
+	.actions-container {
+		padding: 0;
+
+		&:before,
+		&:after {
+			display: none;
+		}
+	}
+
+	button {
+		text-align: center;
 	}
 }

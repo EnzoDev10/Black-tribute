@@ -21,30 +21,10 @@ function App() {
 				<img src={logo} className="logo" alt="Black Logo" />
 
 				<div className="actions-container">
-					<Button
-						label="EASY"
-						parentMethod={() => {
-							console.log('hola');
-						}}
-					/>
-					<Button
-						label="NORMAL"
-						parentMethod={() => {
-							console.log('hola');
-						}}
-					/>
-					<Button
-						label="HARD"
-						parentMethod={() => {
-							console.log('hola');
-						}}
-					/>
-					<Button
-						label="BLACK OPS"
-						parentMethod={() => {
-							console.log('hola');
-						}}
-					/>
+					<Button label="EASY" addSquare={true} parentMethod={() => {}} />
+					<Button label="NORMAL" addSquare={false} parentMethod={() => {}} />
+					<Button label="HARD" addSquare={false} parentMethod={() => {}} />
+					<Button label="BLACK OPS" addSquare={false} parentMethod={() => {}} />
 				</div>
 			</main>
 		</div>
