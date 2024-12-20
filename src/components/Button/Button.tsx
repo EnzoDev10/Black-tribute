@@ -2,8 +2,9 @@ import './Button.css';
 
 interface Props {
 	label: string;
-	addSquare: boolean;
-	parentMethod: () => void;
+	addSquare?: boolean;
+	centered?: boolean;
+	parentMethod?: () => void;
 }
 
 const corners = (
@@ -20,15 +21,25 @@ const corners = (
 	</svg>
 );
 
-export const Button = ({ label, addSquare = false, parentMethod }: Props) => {
+export const Button = ({
+	label,
+	addSquare = false,
+	centered = false,
+	parentMethod = () => {
+		console.log(
+			`The button with the label: ${label} doesn't have a parent method.`
+		);
+	},
+}: Props) => {
 	return (
-		<div className={'btn-container'}>
-			<div className="btn-line left-line"></div>
+		<div className={`btn-container  ${centered ? 'center-ver' : ''}`}>
+			<div className="btn-line left-line" />
 			<button onClick={parentMethod}>
 				{addSquare && corners}
+
 				{label}
 			</button>
-			<div className="btn-line"></div>
+			<div className="btn-line right-line" />
 		</div>
 	);
 };

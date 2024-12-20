@@ -44,7 +44,7 @@ button {
 	&:before {
 		background-color: var(--light-color);
 		content: '';
-		opacity: 0;
+		opacity: 0.01;
 		height: 3px;
 		position: absolute;
 		top: 50%;
@@ -55,6 +55,21 @@ button {
 	&:hover:before,
 	&:focus:before {
 		opacity: 1;
+	}
+}
+
+.btn-container.center-ver {
+	grid-template-columns: repeat(3, 1fr);
+
+	.left-line {
+		display: initial;
+	}
+}
+button {
+	justify-content: center;
+
+	&:before {
+		display: none;
 	}
 }
 
