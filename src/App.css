@@ -5,7 +5,7 @@
 }
 
 :root {
-	--overlay-color: hsl(180 39% 7% / 0.8);
+	--overlay-color: hsla(180 39% 7% / 0.8);
 	--light-color: #fff;
 	--dark-color: #000;
 	--neutral-color: hsla(0, 0%, 100%, 0.7);
@@ -21,6 +21,7 @@ body,
 
 .container {
 	display: flex;
+	overflow-x: hidden;
 }
 
 video {
@@ -33,121 +34,58 @@ video {
 	z-index: -1;
 }
 
-.overlay {
-	border-image: linear-gradient(var(--overlay-color), var(--overlay-color)) fill
-		1;
+img {
+	display: block;
+	max-width: 100%;
 }
 
 .logo {
 	margin-top: 40px;
 }
 
-.left-side {
-	max-width: 150px;
-	width: 20%;
+.overlay {
+	border-image: linear-gradient(var(--overlay-color), var(--overlay-color)) fill
+		1;
 }
 
 .lines-container {
+	align-items: center;
 	display: flex;
+	flex-direction: column;
 	height: 100%;
+	justify-content: center;
+	max-width: 500px;
 	min-width: 150px;
 	position: relative;
 	width: 20%;
 
-	.line {
-		animation: LinesMovement 25s linear infinite;
+	&::before,
+	&::after {
+		content: '';
 		background-color: var(--overlay-color);
-		background-image: url('./assets/images/right-line.png');
+		background-image: url('assets/images/right-line.webp');
 		background-repeat: repeat-y;
 		background-position: center;
 		background-size: contain;
-		height: 100vh;
+		height: 100%;
 		position: absolute;
 		right: 0;
 		top: 0;
 		width: 50px;
 	}
 
-	.line.reverse {
+	&::after {
 		left: 0;
-		background-image: url('./assets/images/left-line.png');
+		background-image: url('assets/images/left-line.webp');
 	}
 }
 
-main {
-	flex-grow: 3;
-	padding-left: 10px;
-}
-
-.actions-container {
+.logo-container {
 	display: flex;
 	flex-direction: column;
-	margin-top: 15px;
-	padding: 20px;
-	padding-left: 40px;
-	position: relative;
-
-	&::before,
-	&:after {
-		background-color: var(--neutral-color);
-		content: '';
-		position: absolute;
-	}
-	&::before {
-		animation: toRightAndBottom 3s ease-in-out forwards;
-		bottom: 100%;
-		height: 2px;
-		left: 0;
-		top: 0;
-		width: 20px;
-	}
-	&::after {
-		animation: toBottomAndRight 3s ease-in-out forwards;
-		bottom: 90%;
-		height: 20px;
-		top: 0;
-		width: 2px;
-	}
-}
-
-/* @keyframes LinesMovement {
-	from {
-		background-position: center 0;
-	}
-	to {
-		background-position: center calc(100% - 100vh);
-	}
-} */
-
-@keyframes toBottomAndRight {
-	0% {
-		left: 0;
-	}
-
-	50% {
-		left: 0;
-		top: 100%;
-	}
-
-	100% {
-		left: 50%;
-		top: 100%;
-	}
-}
-@keyframes toRightAndBottom {
-	0% {
-		left: 0;
-	}
-	/* With calc both bars always have the same appearance at the final position despite viewport size  */
-	50% {
-		left: calc(50% - 18px);
-		top: 0;
-	}
-
-	100% {
-		left: calc(50% - 18px);
-		top: 107%;
-	}
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 100px;
 }
 
 @media screen and (max-width: 500px) {
@@ -157,23 +95,5 @@ main {
 
 	.left-side {
 		display: none;
-	}
-
-	main {
-		padding: 0;
-		text-align: center;
-	}
-
-	.actions-container {
-		padding: 0;
-
-		&:before,
-		&:after {
-			display: none;
-		}
-	}
-
-	button {
-		text-align: center;
 	}
 }
