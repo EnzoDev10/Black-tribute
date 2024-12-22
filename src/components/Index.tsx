@@ -3,3 +3,4 @@
  */
 export { Button } from './Button/Button.tsx';
 export { MainContent } from './Main/Main.tsx';
+export { Intro } from './Intro/Intro.tsx';

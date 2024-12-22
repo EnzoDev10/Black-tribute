@@ -1,0 +1,101 @@
+.overlay-black {
+	height: 100vh;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	z-index: -1;
+}
+
+.intro-container {
+	/* Makes the element appear from the right of the screen. */
+	animation: comesFromRight 5s ease-out forwards;
+	color: var(--light-color);
+	display: grid;
+	height: 100%;
+	text-align: center;
+	opacity: 1;
+	width: 100%;
+}
+
+.intro-container .lines-container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	justify-content: center;
+	padding: 0 50px;
+	width: 100%;
+
+	* {
+		/*
+		Makes the content inside the lines only be totally visible after 6.5s.
+		The timing of this function is related to the timing of 'comesFromRight.
+		as a reminder, the animation timing of this should be shorter than the one previously mentioned
+		but it also should have a delay to look good.'
+		*/
+		animation: increaseOpacity 3.5s forwards;
+		animation-delay: 3s;
+		opacity: 0.01;
+	}
+
+	p {
+		font-weight: bold;
+		margin-top: 35px;
+	}
+}
+
+.logo-container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	justify-content: center;
+	margin-bottom: 80px;
+	width: 100%;
+}
+
+.intro-logo {
+	max-width: 600px;
+	width: 90%;
+}
+
+@keyframes increaseOpacity {
+	to {
+		opacity: 1;
+	}
+}
+
+/* 
+Even if changes were made at any point of the animation that is not 100%,
+they should be added at the end to ensure they end once is finished.
+*/
+
+@keyframes comesFromRight {
+	0% {
+		grid-template-columns: 100% 0% auto;
+	}
+	50% {
+		grid-template-columns: 20% 0% auto;
+	}
+	75% {
+		grid-template-columns: 20% 60% auto;
+	}
+	100% {
+		grid-template-columns: 20% 60% 20%;
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		background-color: black;
+		z-index: 2;
+	}
+
+	100% {
+		background-color: black;
+		opacity: 1;
+		z-index: 2;
+	}
+}
