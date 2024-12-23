@@ -25,6 +25,10 @@ body,
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+button {
+	cursor: pointer;
+}
+
 video {
 	height: 100vh;
 	left: 0;
@@ -38,10 +42,6 @@ video {
 img {
 	display: block;
 	max-width: 100%;
-}
-
-.logo {
-	margin-top: 40px;
 }
 
 .overlay {

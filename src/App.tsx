@@ -12,9 +12,8 @@ function App() {
 			{/* <video playsInline autoPlay muted loop id="bgvid" poster={poster}>
 				<source src={video} type="video/webm" />
 			</video> */}
-			<Intro />
 
-			{/* <MainContent /> */}
+			<MainContent />
 		</div>
 	);
 }
