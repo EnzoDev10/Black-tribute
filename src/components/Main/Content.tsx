@@ -1,14 +1,13 @@
-import { Button } from '../Index';
-import './Main.css';
+import { Button, SoundControl } from '../Index';
+import './Content.css';
 import logo from '../../assets/images/logo.webp';
-
 export const MainContent = () => {
 	return (
-		<main className="overlay">
-			<div className="left-side side overlay" />
-			<div className="lines-container" />
+		<main>
+			<div className="left-side side overlay"></div>
+			<div className="lines-container"></div>
 
-			<div className="main-wrapper">
+			<div className="container overlay">
 				<img src={logo} className="logo" alt="Black Logo" />
 				<div className="actions-container">
 					<Button label="EASY" addSquare={true} />
@@ -16,6 +15,7 @@ export const MainContent = () => {
 					<Button label="HARD" />
 					<Button label="BLACK OPS" addSquare={true} />
 				</div>
+				<SoundControl />
 			</div>
 		</main>
 	);
