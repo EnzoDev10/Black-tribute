@@ -1,5 +1,6 @@
 import './Button.css';
 
+/* The '?' postfix makes the prop optional. */
 interface Props {
 	label: string;
 	addSquare?: boolean;
@@ -7,6 +8,7 @@ interface Props {
 	parentMethod?: () => void;
 }
 
+/* An svg with the shape of a square with only the corners coloured.  */
 const corners = (
 	<svg viewBox="0 0 100 100" width="25px">
 		<path d="M25,2 L2,2 L2,25" fill="none" stroke="white" strokeWidth="10" />

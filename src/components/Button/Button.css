@@ -15,7 +15,8 @@
 	}
 }
 
-button {
+.btn-container button {
+	animation: flicker 400ms forwards;
 	align-items: center;
 	border: none;
 	background-color: transparent;
@@ -24,36 +25,20 @@ button {
 	display: flex;
 	font-size: 1.2rem;
 	gap: 10px;
-	min-width: 250px;
+
+	min-width: 300px;
 	padding: 10px;
 	position: relative;
 	transition: border 1ms;
 
 	&:focus,
 	&:hover {
-		animation: flicker 400ms forwards;
 		background-color: var(--dark-color);
+
 		border-right: solid var(--light-color);
 		border-left: solid var(--light-color);
 		border-width: 3px;
-		font-size: 1.4rem;
 		outline: none;
-		opacity: 1;
-	}
-
-	&:before {
-		background-color: var(--light-color);
-		content: '';
-		opacity: 0.01;
-		height: 3px;
-		position: absolute;
-		top: 50%;
-		left: -60px;
-		width: 60px;
-	}
-
-	&:hover:before,
-	&:focus:before {
 		opacity: 1;
 	}
 }
@@ -65,13 +50,6 @@ button {
 		display: initial;
 	}
 }
-button {
-	justify-content: center;
-
-	&:before {
-		display: none;
-	}
-}
 
 @keyframes flicker {
 	25% {
@@ -80,12 +58,12 @@ button {
 	50% {
 		background-color: var(--neutral-color);
 	}
-	100% {
+	75% {
 		background-color: var(--dark-color);
 	}
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 778px) {
 	.btn-container {
 		grid-template-columns: repeat(3, 1fr);
 
