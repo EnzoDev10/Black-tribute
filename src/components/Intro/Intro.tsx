@@ -2,21 +2,13 @@ import { Button } from '../Index';
 import './Intro.css';
 import logo from '../../assets/images/logo.webp';
 
-import { useRef } from 'react';
-
-export const Intro = () => {
-	const overlay = useRef<HTMLDivElement>(null!);
-
-	const fadeAnimation = () => {
-		/* Use bracket notation with useRef.  */
-		/* Adds an animation to the overlay div so it appears on btn click. */
-		overlay['current']['style']['animation'] = 'fadeOut 3s ease-in forwards';
-	};
-
+interface Props {
+	appMethod: () => void;
+}
+export const Intro = ({ appMethod }: Props) => {
 	return (
 		<>
 			<div className="intro-container">
-				<div className="overlay-black" ref={overlay} />
 				<div className="left-side side overlay" />
 				<div className="lines-container">
 					<div className="logo-container">
@@ -24,7 +16,7 @@ export const Intro = () => {
 						<h1>Honor Page</h1>
 					</div>
 					<Button
-						parentMethod={fadeAnimation}
+						parentMethod={appMethod}
 						centered={true}
 						label="PULSA EL BOTON START"
 					/>

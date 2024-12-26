@@ -61,12 +61,6 @@
 	width: 90%;
 }
 
-@keyframes increaseOpacity {
-	to {
-		opacity: 1;
-	}
-}
-
 /* 
 Even if changes were made at any point of the animation that is not 100%,
 they should be added at the end to ensure they end once is finished.
@@ -74,7 +68,7 @@ they should be added at the end to ensure they end once is finished.
 
 @keyframes comesFromRight {
 	0% {
-		grid-template-columns: 100% 0% auto;
+		grid-template-columns: 110% 0% auto;
 	}
 	50% {
 		grid-template-columns: 20% 0% auto;
@@ -89,13 +83,26 @@ they should be added at the end to ensure they end once is finished.
 
 @keyframes fadeOut {
 	0% {
-		background-color: black;
+		background-color: var(--overlay-color);
 		z-index: 2;
 	}
 
-	100% {
-		background-color: black;
+	50% {
+		background-color: hsl(180 39% 7%);
 		opacity: 1;
 		z-index: 2;
+	}
+
+	75% {
+		background-color: hsl(180 39% 7%);
+		opacity: 1;
+		z-index: 2;
+	}
+
+	90% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0.01;
 	}
 }
