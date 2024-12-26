@@ -1,6 +1,7 @@
 import { Button, SoundControl } from '../Index';
 import './Content.css';
 import logo from '../../assets/images/logo.webp';
+
 export const MainContent = () => {
 	return (
 		<main>

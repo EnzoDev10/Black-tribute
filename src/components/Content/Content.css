@@ -95,21 +95,23 @@ main .left-side {
 		padding-left: 0;
 	}
 
-	.container img {
+	main .container img {
 		max-width: 80%;
 	}
 
 	button {
 		text-align: center;
 	}
+
 	.actions-container {
 		&:before,
 		&:after {
 			opacity: 0;
 		}
 	}
-	.lines-container,
-	.left-side {
+
+	main .lines-container,
+	main .left-side {
 		display: none;
 	}
 }
