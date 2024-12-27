@@ -1,3 +1,13 @@
+.overlay-black {
+	height: 100vh;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	z-index: -1;
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -18,11 +28,34 @@ body,
 	height: 100%;
 	width: 100%;
 }
+html {
+	background-color: black;
+}
 
 .container {
+	animation: imageAppear 3s forwards;
 	overflow-x: hidden;
-	background-image: url(./assets/images/bg-poster.webp);
+
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+.gun-bg {
+	animation: ImageAppear 3.5s forwards;
+	animation-delay: 3s;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: url('./assets/images/bg-poster.webp');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: black;
+	opacity: 0.01;
+	content: '';
+	z-index: -1;
 }
 
 button {
@@ -52,6 +85,7 @@ img {
 .lines-container {
 	position: relative;
 	height: 100%;
+	background-color: transparent;
 
 	&::before,
 	&::after {
@@ -71,5 +105,17 @@ img {
 	&::after {
 		left: 0;
 		background-image: url('assets/images/left-line.webp');
+	}
+}
+
+@keyframes ImageAppear {
+	to {
+		opacity: 0.4;
+	}
+}
+
+@keyframes increaseOpacity {
+	to {
+		opacity: 1;
 	}
 }
