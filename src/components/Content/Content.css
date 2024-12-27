@@ -1,23 +1,40 @@
 main {
-	display: flex;
+	animation: ContentAnim 3s ease-out forwards;
+	display: grid;
 	width: 100%;
 	height: 100%;
+	z-index: 3;
+	position: relative;
 }
 
 main .container {
-	padding-left: 15px;
+	padding-left: 40px;
 	width: 100%;
 	color: var(--light-color);
+
+	* {
+		animation: increaseOpacity 2.5s forwards;
+		animation-delay: 2s;
+		opacity: 0.01;
+	}
 }
 
 main .lines-container {
-	max-width: 500px;
-	min-width: 150px;
-	width: 20%;
+	max-width: 250px;
+	min-width: 125px;
+	padding: 0 50px;
 }
 
-main .left-side {
-	min-width: 50px;
+.pusher {
+	display: flex;
+
+	.left-side {
+		flex-grow: 1;
+	}
+
+	.lines-container {
+		min-width: 150px;
+	}
 }
 
 .logo {
@@ -38,6 +55,7 @@ main .left-side {
 	}
 	&::before {
 		animation: toRightAndBottom 4s ease-in-out forwards;
+		animation-delay: 2s;
 		bottom: 100%;
 		height: 2px;
 		top: 0;
@@ -47,6 +65,7 @@ main .left-side {
 		--topPosition: 0;
 		--bottomPosition: 90%;
 		animation: toBottomAndRight 4s ease-in-out forwards;
+		animation-delay: 2s;
 		bottom: 90%;
 		height: 20px;
 		top: 0;
@@ -87,6 +106,19 @@ main .left-side {
 	}
 }
 
+/* Animation only used to move the manin content around. */
+@keyframes ContentAnim {
+	0% {
+		grid-template-columns: 120% 75%;
+	}
+	50% {
+		grid-template-columns: 25% 75%;
+	}
+	100% {
+		grid-template-columns: 25% 75%;
+	}
+}
+
 @media screen and (max-width: 778px) {
 	main .container {
 		display: flex;
@@ -108,10 +140,5 @@ main .left-side {
 		&:after {
 			opacity: 0;
 		}
-	}
-
-	main .lines-container,
-	main .left-side {
-		display: none;
 	}
 }

@@ -5,8 +5,10 @@ import logo from '../../assets/images/logo.webp';
 export const MainContent = () => {
 	return (
 		<main>
-			<div className="left-side side overlay"></div>
-			<div className="lines-container"></div>
+			<div className='pusher'>
+				<div className="left-side side overlay"></div>
+				<div className="lines-container"></div>
+			</div>
 
 			<div className="container overlay">
 				<img src={logo} className="logo" alt="Black Logo" />
