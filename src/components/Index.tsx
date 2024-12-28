@@ -5,3 +5,4 @@ export { Button } from './Button/Button.tsx';
 export { MainContent } from './Content/Content.tsx';
 export { Intro } from './Intro/Intro.tsx';
 export { SoundControl } from './SoundControl/SoundControl.tsx';
+export { GoBack } from './GoBack/GoBack.tsx';

@@ -16,7 +16,6 @@ function App() {
 
 		const makeVisible = setInterval(() => {
 			setIsMainVisible(true);
-			console.log('trabajo terminado');
 			clearInterval(makeVisible);
 		}, 3000);
 	}

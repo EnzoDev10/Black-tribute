@@ -148,6 +148,18 @@ main .lines-container {
 	}
 }
 
+@keyframes ContentAnimReverse {
+	0% {
+		grid-template-columns: 25% 75%;
+	}
+	50% {
+		grid-template-columns: 25% 75%;
+	}
+	100% {
+		grid-template-columns: 120% 75%;
+	}
+}
+
 @media screen and (max-width: 778px) {
 	main .container {
 		display: flex;
