@@ -7,7 +7,7 @@ import { MainContent, Intro } from './components/Index';
 
 function App() {
 	const overlay = useRef<HTMLDivElement>(null!);
-	const [isMainVisible, setIsMainVisible] = useState(false);
+	const [isMainVisible, setIsMainVisible] = useState(true);
 	/* Use bracket notation with useRef.  */
 	/* Adds an animation to the overlay div so it appears on btn click. */
 
@@ -29,6 +29,7 @@ function App() {
 				<source src={video} type="video/webm" />
 			</video> */}
 			{!isMainVisible && <Intro appMethod={setVisibility} />}
+
 			{isMainVisible && <MainContent />}
 		</div>
 	);
