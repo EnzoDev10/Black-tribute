@@ -1,10 +1,10 @@
-import { Button, SoundControl, GoBack } from '../Index';
+import { Button, SoundControl, GoBack, SetOfInfoCards } from '../Index';
 import './Content.css';
 import logo from '../../assets/images/logo.webp';
 
 import { useEffect, useRef, useState } from 'react';
 export const MainContent = () => {
-	const [nameBtnsToShow, setNameBtnsToShow] = useState('main');
+	const [nameBtnsToShow, setNameBtnsToShow] = useState('info');
 	const main = useRef<HTMLDivElement>(null!);
 	let lastName: string;
 
@@ -45,6 +45,13 @@ export const MainContent = () => {
 		firstRender.current = false;
 	}, []);
 
+	const titles = ['ASSAULT RIFLE / AK47', 'HECKLER & KOCH G36C'];
+	const srcs = ['Creola Katherine Johnson: mathematician'];
+	const texts = [
+		'THE AK47 IS THE PRIMARY WEAPON USED BY SEVENTH WAVE SOLDIERS THROUGHOUT THE GAME. AND COMES WITH A DOUBLE D CAPACITY OF 60 ROUNDS. THE RATE OF FIRE HAS ALSO SEEN A BOOST FROM 600RPM TO 750RPM.',
+		'THE AK47 IS THE PRIMARY WEAPON USED BY SEVENTH WAVE SOLDIERS THROUGHOUT THE GAME. AND COMES WITH A DOUBLE D CAPACITY OF 60 ROUNDS. THE RATE OF FIRE HAS ALSO SEEN A BOOST FROM 600RPM TO 750RPM.',
+	];
+
 	return (
 		<main ref={main}>
 			<div className="pusher">
@@ -54,7 +61,10 @@ export const MainContent = () => {
 			<div
 				className={`container overlay${firstRender.current ? ' fadeIn' : ''}`}
 			>
-				<img src={logo} className="logo" alt="Black Logo" />
+				{nameBtnsToShow != 'info' && (
+					<img src={logo} className="logo" alt="Black Logo" />
+				)}
+				<h2 id="subTitle">Galeria De Armas</h2>
 				<div className="actions-container">
 					{nameBtnsToShow === 'main' && (
 						<div id="First">
@@ -104,6 +114,11 @@ export const MainContent = () => {
 						</div>
 					)}
 				</div>
+				<SetOfInfoCards
+					arrayOfTitles={titles}
+					arrayOfSrcs={srcs}
+					arrayOfText={texts}
+				/>
 				<SoundControl />
 				<GoBack parentMethod={() => changeCurrentBtns(lastName)} />
 			</div>
