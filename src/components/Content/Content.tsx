@@ -4,7 +4,7 @@ import logo from '../../assets/images/logo.webp';
 
 import { useEffect, useRef, useState } from 'react';
 export const MainContent = () => {
-	const [nameBtnsToShow, setNameBtnsToShow] = useState('info');
+	const [nameBtnsToShow, setNameBtnsToShow] = useState('main');
 	const main = useRef<HTMLDivElement>(null!);
 	let lastName: string;
 
@@ -29,6 +29,9 @@ export const MainContent = () => {
 			lastName = 'main';
 			break;
 
+		case 'info':
+			lastName = 'guns';
+			break;
 		default:
 			lastName = '';
 			break;
@@ -88,10 +91,26 @@ export const MainContent = () => {
 
 					{nameBtnsToShow === 'guns' && (
 						<div id="GUNS">
-							<Button label="HANDGUN" addSquare={true} />
-							<Button label="SUBMACHINE" addSquare={true} />
-							<Button label="SHOTGUNS" addSquare={true} />
-							<Button label="RIFLES" addSquare={true} />
+							<Button
+								label="HANDGUN"
+								addSquare={true}
+								parentMethod={() => changeCurrentBtns('info')}
+							/>
+							<Button
+								label="SUBMACHINE"
+								addSquare={true}
+								parentMethod={() => changeCurrentBtns('info')}
+							/>
+							<Button
+								label="SHOTGUNS"
+								addSquare={true}
+								parentMethod={() => changeCurrentBtns('info')}
+							/>
+							<Button
+								label="RIFLES"
+								addSquare={true}
+								parentMethod={() => changeCurrentBtns('info')}
+							/>
 						</div>
 					)}
 					{nameBtnsToShow === 'misions' && (
@@ -114,11 +133,13 @@ export const MainContent = () => {
 						</div>
 					)}
 				</div>
-				<SetOfInfoCards
-					arrayOfTitles={titles}
-					arrayOfSrcs={srcs}
-					arrayOfText={texts}
-				/>
+				{nameBtnsToShow === 'info' && (
+					<SetOfInfoCards
+						arrayOfTitles={titles}
+						arrayOfSrcs={srcs}
+						arrayOfText={texts}
+					/>
+				)}
 				<SoundControl />
 				<GoBack parentMethod={() => changeCurrentBtns(lastName)} />
 			</div>
